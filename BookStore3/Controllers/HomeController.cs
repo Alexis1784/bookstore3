@@ -9,6 +9,11 @@ namespace BookStore3.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Index2()
+        {
+            return View(db.Books);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

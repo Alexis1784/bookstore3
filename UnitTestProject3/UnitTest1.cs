@@ -35,5 +35,17 @@ namespace UnitTestProject3
             Assert.AreEqual("Your application description page.", result.ViewBag.Message); 
 
         }
+        [TestMethod]
+        public void IndexViewModelNotNull()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Index2() as ViewResult;
+            
+            // Assert
+            Assert.IsNotNull(result.Model);
+        }
     }
 }
