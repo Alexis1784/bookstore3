@@ -9,6 +9,12 @@ namespace BookStore3.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
         // создаем контекст данных
         BookContext db = new BookContext();
 
@@ -18,7 +24,7 @@ namespace BookStore3.Controllers
             IEnumerable<Book> books = db.Books;
             // передаем все объекты в динамическое свойство Books в ViewBag
             ViewBag.Books = books;
-            // возвращаем представление
+             //возвращаем представление
             return View();
         }
         [HttpGet]
