@@ -30,7 +30,7 @@ namespace BookStore3.Models
         }
         public List<Book> GetBookList()
         {
-            return db.Books.ToList<Book>();
+            return db.Books.ToList();
         }
         public Book GetBook(int id)
         {
