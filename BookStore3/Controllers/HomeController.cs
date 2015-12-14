@@ -9,6 +9,17 @@ namespace BookStore3.Controllers
 {
     public class HomeController : Controller
     {
+        public IRepository repo;
+
+        public HomeController(IRepository r)
+        {
+            repo = r;
+        }
+        public HomeController()
+        {
+            repo = new BookRepository();
+        }
+        
         public ActionResult Index2()
         {
             return View(db.Books);
