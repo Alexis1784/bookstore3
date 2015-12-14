@@ -47,7 +47,7 @@ namespace UnitTestProject3
             HomeController controller = new HomeController(mock.Object);
 
             // Act
-            ViewResult result = controller.Index2() as ViewResult;
+            ViewResult result = controller.Index() as ViewResult;
             
             // Assert
             Assert.IsNotNull(result.Model);
@@ -65,5 +65,21 @@ namespace UnitTestProject3
         //    // Assert
         //    Assert.IsNotNull(result.Model);
         //}
+        [TestMethod]
+        public void IndexViewBagMessage()
+        {
+            // Arrange
+            var mock = new Mock<IRepository>();
+            mock.Setup(a => a.GetBookList()).Returns(new List<Book>() { new Book() });
+            HomeController controller = new HomeController(mock.Object);
+            string expected = "В базе данных 1 объект";
+
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+            string actual = result.ViewBag.Message as string;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

@@ -36,12 +36,9 @@ namespace BookStore3.Controllers
 
         public ActionResult Index()
         {
-            // получаем из бд все объекты Book
-            IEnumerable<Book> books = db.Books;
-            // передаем все объекты в динамическое свойство Books в ViewBag
-            ViewBag.Books = books;
-             //возвращаем представление
-            return View();
+            var model = repo.GetBookList();
+ 
+            return View(model);
         }
         [HttpGet]
         public ActionResult Buy(int id)
