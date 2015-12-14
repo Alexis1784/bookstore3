@@ -37,7 +37,8 @@ namespace BookStore3.Controllers
         public ActionResult Index()
         {
             var model = repo.GetBookList();
- 
+            if (model.Count > 0)
+                ViewBag.Message = String.Format("В базе данных {0} объект", model.Count);
             return View(model);
         }
         [HttpGet]
