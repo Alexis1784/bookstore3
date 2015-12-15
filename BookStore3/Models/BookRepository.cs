@@ -32,6 +32,11 @@ namespace BookStore3.Models
         {
             return db.Books.ToList();
         }
+        public IEnumerable<Book> GetBookList2()
+        {
+            IEnumerable<Book> books = db.Books;
+            return books;
+        }
         public Book GetBook(int id)
         {
             return db.Books.Find(id);
