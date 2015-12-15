@@ -20,19 +20,11 @@ namespace BookStore3.Controllers
             repo = new BookRepository();
         }
         
-        public ActionResult Index2()
-        {
-            return View(db.Books);
-        }
+        
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
+        
         // создаем контекст данных
-        BookContext db = new BookContext();
+        //BookContext db = new BookContext();
 
         public ActionResult Index()
         {
@@ -48,16 +40,16 @@ namespace BookStore3.Controllers
             ViewBag.BookId = id;
             return View();
         }
-        [HttpPost]
-        public string Buy(Purchase purchase)
-        {
-            purchase.Date = DateTime.Now;
-            // добавляем информацию о покупке в базу данных
-            db.Purchases.Add(purchase);
-            // сохраняем в бд все изменения
-            db.SaveChanges();
-            return "Спасибо," + purchase.Person + ", за покупку!";
-        }
+        //[HttpPost]
+        //public string Buy(Purchase purchase)
+        //{
+        //    purchase.Date = DateTime.Now;
+        //    // добавляем информацию о покупке в базу данных
+        //    db.Purchases.Add(purchase);
+        //    // сохраняем в бд все изменения
+        //    db.SaveChanges();
+        //    return "Спасибо," + purchase.Person + ", за покупку!";
+        //}
         public string Square(int a, int h)
         {
             double s = a * h / 2;

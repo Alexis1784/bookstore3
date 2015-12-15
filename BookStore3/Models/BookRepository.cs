@@ -22,7 +22,7 @@ namespace BookStore3.Models
 
     public class BookRepository : IRepository
     {
-        private BookContext db;
+        public BookContext db;
 
         public BookRepository()
         {

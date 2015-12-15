@@ -14,6 +14,23 @@ namespace UnitTestProject3
     public class HomeControllerTest
     {
         [TestMethod]
+        public void InitRep()
+        {
+            //Arrange
+            BookRepository initRep = new BookRepository();
+            //Assert
+            Assert.IsNotNull(initRep.db);
+        }
+        [TestMethod]
+        public void InitBC()
+        {
+            //Arrange
+            //new BookDbInitializer();
+            BookContext initBC = new BookContext();
+            //Assert
+            Assert.IsNotNull(initBC);
+        }
+        [TestMethod]
         public void Index()
         {
             // Arrange
@@ -25,19 +42,7 @@ namespace UnitTestProject3
             // Assert
             Assert.IsNotNull(result);
         }
-        [TestMethod]
-        public void About()
-        { 
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act 
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message); 
-
-        }
+         
         [TestMethod]
         public void IndexViewModelNotNull()
         {
