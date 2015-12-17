@@ -26,12 +26,14 @@ namespace BookStore3.Controllers
         public ActionResult Index()
         {
             //BookRepository repo2 = repo as BookRepository;
-            //var model = repo2.GetBookList2();
+           // var model = repo2.GetBookList2();
             //if (model.Count > 0)
             //    ViewBag.Message = String.Format("В базе данных {0} объект", model.Count);
             //return View(model);
             var model = repo.GetBookList(); // https://www.google.ru/search?client=opera&q=c%23+ienumerable+tolist+performance&sourceid=opera&ie=UTF-8&oe=UTF-8#newwindow=1&q=c+sharp+convert+list+to+ienumerable
             ViewBag.Books = model;
+            //IEnumerable<Book> books = db.Books;
+            //ViewBag.Books = books;
             return View();
         }
 
@@ -42,12 +44,12 @@ namespace BookStore3.Controllers
         //    return;
         //}
 
-        //[HttpGet]
-        //public ActionResult Buy(int id)
-        //{
-        //    ViewBag.BookId = id;
-        //    return View();
-        //}
+        [HttpGet]
+        public ActionResult Buy(int id)
+        {
+            ViewBag.BookId = id;
+            return View();
+        }
         //[HttpPost]
         //public string Buy(Purchase purchase)
         //{
