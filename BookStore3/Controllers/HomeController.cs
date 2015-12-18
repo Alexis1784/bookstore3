@@ -19,30 +19,13 @@ namespace BookStore3.Controllers
         {
             repo = new BookRepository();
         }
-        
-        // создаем контекст данных
-        //BookContext db = new BookContext();
 
         public ActionResult Index()
         {
-            //BookRepository repo2 = repo as BookRepository;
-           // var model = repo2.GetBookList2();
-            //if (model.Count > 0)
-            //    ViewBag.Message = String.Format("В базе данных {0} объект", model.Count);
-            //return View(model);
-            var model = repo.GetBookList(); // https://www.google.ru/search?client=opera&q=c%23+ienumerable+tolist+performance&sourceid=opera&ie=UTF-8&oe=UTF-8#newwindow=1&q=c+sharp+convert+list+to+ienumerable
+            var model = repo.GetBookList2(); 
             ViewBag.Books = model;
-            //IEnumerable<Book> books = db.Books;
-            //ViewBag.Books = books;
             return View();
         }
-
-        //public void Index2()
-        //{
-        //    BookContext db = new BookContext();
-        //    db.Books.ToList();
-        //    return;
-        //}
 
         [HttpGet]
         public ActionResult Buy(int id)
@@ -59,12 +42,6 @@ namespace BookStore3.Controllers
         //    // сохраняем в бд все изменения
         //    db.SaveChanges();
         //    return "Спасибо," + purchase.Person + ", за покупку!";
-        //}
-        //public string Square(int a, int h)
-        //{
-        //    double s = a * h / 2;
-        //    return "<h2>Площадь треугольника с основанием " + a +
-        //            " и высотой " + h + " равна " + s + "</h2>";
         //}
     }
 }

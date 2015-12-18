@@ -13,20 +13,27 @@ namespace BookStore3.Models
     public interface IRepository : IDisposable
     {
         List<Book> GetBookList();
+        IEnumerable<Book> GetBookList2();
         Book GetBook(int id);
         void Create(Book item);
         void Update(Book item);
         void Delete(int id);
         void Save();
+        BookContext GetContext();
     }
 
     public class BookRepository : IRepository
     {
+       
         public BookContext db;
 
         public BookRepository()
         {
             this.db = new BookContext();
+        }
+        public BookRepository(BookContext db)
+        {
+            this.db = db;
         }
         public List<Book> GetBookList()
         {
@@ -34,8 +41,7 @@ namespace BookStore3.Models
         }
         public IEnumerable<Book> GetBookList2()
         {
-            IEnumerable<Book> books = db.Books;
-            return books;
+            return db.Books;
         }
         public Book GetBook(int id)
         {
@@ -59,6 +65,10 @@ namespace BookStore3.Models
         {
             db.SaveChanges();
 
+        }
+        public BookContext GetContext()
+        {
+            return this.db;
         }
         private bool disposed = false;
 
